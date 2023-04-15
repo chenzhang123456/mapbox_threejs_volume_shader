@@ -1,1 +1,4 @@
-# mapbox_threejs_volume_shader
+this can be easily run with
+```
+http-server -p 8000
+```
