@@ -268,24 +268,7 @@
                 const furthestDistance = Math.cos(Math.PI / 2 - transform._pitch) * topHalfSurfaceDistance + transform.cameraToCenterDistance;
                 const farZ = furthestDistance * 1.01;
 
-         		var w = transform.width;
-         		var h = transform.height;
-
-         		mat4.ortho(orthoMatrix,
-         		-w/2.0,w/2.0,
-         		-h/2.0,h/2.0,
-         		1, farZ);
-
-            	mat4.perspective(projectionMatrix, transform._fov, transform.width / transform.height, 1, farZ);
-            	mat4.invert(projectionMatrixI, projectionMatrix);
-            	mat4.multiply(viewMatrix0, projectionMatrixI, matrix);
-         		mat4.multiply(viewMatrix, viewMatrix0, l.toArray());
-         	
-         		if(is_init){
-         			var vM=new THREE.Matrix4().fromArray(viewMatrix);
-         			var pM=new THREE.Matrix4().fromArray(projectionMatrix);
-					set_uniforM(vM,pM.multiply(vM));
-         		}
+         		
  
                 renderer.resetState();
                 renderer.render(scene, camera);
